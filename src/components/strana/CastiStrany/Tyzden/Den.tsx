@@ -1,12 +1,8 @@
-interface DenProps {
-  datum: number;
-}
-
-function Den({ datum }: DenProps) {
+function Den({ den, calendarArray, isVikend }) {
   return (
-    <div className="den">
-      <div className="datum">{datum}</div>
-      <div className="info">{}</div>
+    <div className={`den ${isVikend}`}>
+      <div className="datum">{calendarArray[den].date}</div>
+      <div className="info">{calendarArray[den].dayName}</div>
     </div>
   );
 }

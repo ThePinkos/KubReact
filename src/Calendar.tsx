@@ -1,8 +1,11 @@
-import Strana from "./components/strana/Strana";
+import Fotka from "./components/strana/CastiStrany/Fotka";
+import Tyzden from "./components/strana/CastiStrany/Tyzden";
+import Poznamky from "./components/strana/CastiStrany/Poznamky";
 
 function Calendar() {
-  const year = 2025;
-  const calendarArray = [];
+  const year = 2024;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const calendarArray: any[] = [];
 
   //Zisti ci je rok prestupny a vrati 366 alebo 365
   const dayCount = () => {
@@ -18,13 +21,13 @@ function Calendar() {
   ];
 
   //Zisti cislo dna v roku
-  const getDayNumber = (date: Date) =>
+  const getDayNumber = (date) =>
     Math.floor(
       (date.getTime() - new Date(date.getFullYear(), 0, 0).getTime()) / 86400000
     );
 
   //Zisti cislo tyzdna v roku
-  const getWeekNumber = (date: Date) => {
+  const getWeekNumber = (date) => {
     date.setDate(date.getDate() + 4 - (date.getDay() || 7));
     const yearStart = new Date(date.getFullYear(), 0, 1);
     const weekNumber = Math.ceil(((+date - +yearStart) / 86400000 + 1) / 7);
@@ -68,7 +71,13 @@ function Calendar() {
 
   return (
     <div className="kalendar">
-      <Strana />
+      {[...Array(3)].map((_, index) => (
+        <div className="strana">
+          <Fotka />
+          <Tyzden strana={index} calendarArray={calendarArray} />
+          <Poznamky />
+        </div>
+      ))}
     </div>
   );
 }
