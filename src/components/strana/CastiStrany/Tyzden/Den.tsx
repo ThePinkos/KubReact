@@ -1,8 +1,8 @@
-function Den({ den, calendarArray, isVikend }) {
+function Den({ den, calendarArray, isVikend, seventhInfo, seventhDatum }) {
   return (
     <div className={`den ${isVikend}`}>
-      <div className="datum">{calendarArray[den].date}</div>
-      <div className="info">{calendarArray[den].dayName}</div>
+      <div className={`datum ${seventhDatum}`}>{calendarArray[den].date}</div>
+      <div className={`info ${seventhInfo}`}>{calendarArray[den].dayName}</div>
     </div>
   );
 }

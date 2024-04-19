@@ -100,10 +100,15 @@
 }
 
 .vikend .info {
-  border-bottom: 1mm solid #00b050;
   border-top: 1mm solid #00b050;
   border-right: 1mm solid #00b050;
   background-color: #e2efda;
+}
+.seventh {
+  border-bottom: 1mm solid #00b050;
+}
+.seventhDatum {
+  border-bottom: 1mm solid #ffffff;
 }
 
 /* CAST FOTKA */
@@ -136,4 +141,3 @@
     display: none;
   }
 }
-</style>

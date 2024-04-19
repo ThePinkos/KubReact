@@ -6,8 +6,10 @@ function Tyzden({ strana, calendarArray }) {
     <div className="tyzden">
       <TyzdenInfo />
       {[...Array(7)].map((_, index) => (
-        <Den 
+        <Den
           isVikend={index === 5 || index === 6 ? "vikend" : ""}
+          seventhInfo={index === 6 ? "seventh" : ""}
+          seventhDatum={index === 6 ? "seventhDatum" : ""}
           key={index}
           calendarArray={calendarArray}
           den={index + strana * 7}
